@@ -1,12 +1,12 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { config } from 'dotenv';
 import express from 'express';
+import multer from 'multer';
 
+import { connectDB } from './config/db.js';
 import adminRouter from './routes/admin.routes.js';
 import mainRouter from './routes/main.routes.js';
-import { connectDB } from './config/db.js';
-import cors from 'cors';
-import multer from 'multer';
 
 var upload = multer();
 
@@ -28,3 +28,6 @@ app.use('/main', mainRouter);
 app.listen(process.env.PORT,()=>{
     console.log("server started listening on PORT: ",process.env.PORT)
 })
+
+
+export default app;
